@@ -1,8 +1,10 @@
+    let nthNumber;
 function rowSumOddNumbers(n) {
 	let howManyNumbersAreThereInTheRows=0;
     let theLastNumberInNthRow;
     let theNumbersInTheNthRow;
     let theSumOfTheNumbersOfTheNthRow=0;
+    
 
     for(let i=0; i<=n;i++){
         howManyNumbersAreThereInTheRows+=i;
@@ -15,14 +17,23 @@ function rowSumOddNumbers(n) {
             theSumOfTheNumbersOfTheNthRow+=theNumbersInTheNthRow;
             theNumbersInTheNthRow-=2;
             } 
-         
+     document.querySelector("#result").textContent=`The sum of the numbers of the nth row is: ${theSumOfTheNumbersOfTheNthRow}`;
      return  theSumOfTheNumbersOfTheNthRow;
     
 }
-rowSumOddNumbers(6);
+
+function nthNumberFunct (){
+    nthNumber=document.querySelector("#nthNumber").value;
+}
+
+nthNumberFunct();
+rowSumOddNumbers(nthNumber);
+
+document.querySelector("#nthNumber").addEventListener("keyup",nthNumberFunct );
+document.querySelector("#nthNumber").addEventListener("click",nthNumberFunct );
+
+document.querySelector("#nthNumber").addEventListener("keyup",()=>rowSumOddNumbers(nthNumber) ); 
+document.querySelector("#nthNumber").addEventListener("click",()=>rowSumOddNumbers(nthNumber) );   
 
 
-/*
-4=1+4*2
-3= 1+3*2
-*/
+
